@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package mspersistence;
+
+option go_package="./mspersistence";
+
+service GetDataService {
+  rpc Get(GetRequest) returns (GetResponse) {}
+};
+
+message GetRequest {
+  uint32 numberOfRecords = 1;
+  uint32 page = 2;
+}
+
+message GetResponse {
+  repeated Person Persons = 1;
+}
+
+message Person {
+  string name = 1;
+  string surname = 2;
+  uint32 age = 3;
+  string city = 4;
+  string phone = 5;
+}
